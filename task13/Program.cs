@@ -13,21 +13,25 @@ void ThirdDigit(string text)
     if (result == true)
     {
         int length = text.Length;
-        if(length < 3) Console.WriteLine("Третьей цифры нет.");
+        if (length < 3) Console.WriteLine("Третьей цифры нет.");
         else
         {
-            int temp1 = 10;
-            int temp2 = 10;
-            for (int i = 1; i < length - 2; i++)
+            if (length == 3) Console.WriteLine(number % 10);
+            else
             {
-                temp1 *= 10;
+                int temp1 = 10;
+                int temp2 = 10;
+                for (int i = 1; i < length - 2; i++)
+                {
+                    temp1 *= 10;
+                }
+                for (int i = 1; i < length - 3; i++)
+                {
+                    temp2 *= 10;
+                }
+                int thirdDigit = number / temp2 - number / temp1 * 10;
+                Console.WriteLine(thirdDigit);
             }
-            for (int i = 1; i < length - 3; i++)
-            {
-                temp2 *= 10;
-            }
-            int thirdDigit = number / temp2 - number / temp1 * 10;
-            Console.WriteLine(thirdDigit);
         }
     }
     else
